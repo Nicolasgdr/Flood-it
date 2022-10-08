@@ -18,7 +18,7 @@ public:
         for (size_t i = 0; i < getRow(); ++i) {
             for (size_t y = 0; y < getColumn(); ++y) {
                 Color color = randomColor();
-                plateau.at(i).at(y)=Square(color);
+                plateau.at(i).at(y)=Square(Position(i,y),color);
             }
         }
     }

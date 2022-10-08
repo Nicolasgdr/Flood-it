@@ -25,7 +25,8 @@ bool Game::checkNeighbor(){
         for (size_t y = 0; y < board.getPlateau()[i].size(); ++y) {
             Color value = board.getSquare(Position(i,y)).getColor();
             if(value == colorAsk){
-                if (lookPlacement(Position(i,y))) {
+                auto placement = lookPlacement(Position(i,y));
+                if (placement) {
                 check = true;
                 Neighbors.push_back(board.getSquare(Position(i,y)));
                 if(board.isInside(Position(i-0,y-1)) && board.getSquare(Position(i-0,y-1)).getColor()==colorAsk){
@@ -49,7 +50,8 @@ bool Game::checkNeighbor(){
 void Game::changeColorOfGroupe(Color color){
     for (size_t i = 0; i < getGroupe().size(); ++i) {
         Groupe.at(i).setColor(color);
-        board.getSquare(Groupe.at(i).getPosition()).setColor(color);
+        auto p = Groupe.at(i).getPosition();
+        board.getSquare(p).setColor(color);
     }
     NumberOfPlay++;
 }
