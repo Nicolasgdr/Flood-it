@@ -23,8 +23,9 @@ bool Game::checkNeighbor(){
     changeColorOfGroupe(colorAsk);
     for (size_t i = 0; i < board.getPlateau().size(); ++i) {
         for (size_t y = 0; y < board.getPlateau()[i].size(); ++y) {
-            int value = board.getSquare(Position(i,y)).getColor();
-            if(value == colorAsk && lookPlacement(Position(i,y))){
+            Color value = board.getSquare(Position(i,y)).getColor();
+            if(value == colorAsk){
+                if (lookPlacement(Position(i,y))) {
                 check = true;
                 Neighbors.push_back(board.getSquare(Position(i,y)));
                 if(board.isInside(Position(i-0,y-1)) && board.getSquare(Position(i-0,y-1)).getColor()==colorAsk){
@@ -38,6 +39,7 @@ bool Game::checkNeighbor(){
                 }else if(board.isInside(Position(i-1,y+0)) && board.getSquare(Position(i-1,y+0)).getColor()==colorAsk){
                     Neighbors.push_back(board.getSquare(Position(i-1,y+0)));
                 }
+                }
             }
         }
     }
@@ -47,6 +49,7 @@ bool Game::checkNeighbor(){
 void Game::changeColorOfGroupe(Color color){
     for (size_t i = 0; i < getGroupe().size(); ++i) {
         Groupe.at(i).setColor(color);
+        board.getSquare(Groupe.at(i).getPosition()).setColor(color);
     }
     NumberOfPlay++;
 }
@@ -65,9 +68,9 @@ bool Game::lookPlacement(Position position){
             return true;
         }else if (Position(position.getRow()-1,position.getColumn())==Groupe.at(i).getPosition()) {
             return true;
-        }else if (Position(position.getColumn()+1,position.getColumn())==Groupe.at(i).getPosition()) {
+        }else if (Position(position.getRow(),position.getColumn()+1)==Groupe.at(i).getPosition()) {
             return true;
-        }else if (Position(position.getColumn()-1,position.getColumn())==Groupe.at(i).getPosition()) {
+        }else if (Position(position.getRow(),position.getColumn()-1)==Groupe.at(i).getPosition()) {
             return true;
         }
     }

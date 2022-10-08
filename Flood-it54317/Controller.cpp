@@ -21,9 +21,9 @@ void Controller::launchPlay(){
     QObject::connect(this->play-> getbuttonRed(),SIGNAL(clicked()),this,SLOT(actionbuttonRed()));
     QObject::connect(this->play-> getbuttonBlue(),SIGNAL(clicked()),this,SLOT(actionbuttonBlue()));
     QObject::connect(this->play-> getbuttonGreen(),SIGNAL(clicked()),this,SLOT(actionbuttonGreen()));
-    QObject::connect(this->play-> getbuttonPink(),SIGNAL(clicked()),this,SLOT(actionbuttonBlack()));
-    QObject::connect(this->play-> getbuttonBlack(),SIGNAL(clicked()),this,SLOT(actionbuttonPink()));
-    QObject::connect(this->play-> getbuttonPurple(),SIGNAL(clicked()),this,SLOT(actionbuttonPink()));
+    QObject::connect(this->play-> getbuttonPink(),SIGNAL(clicked()),this,SLOT(actionbuttonPink()));
+    QObject::connect(this->play-> getbuttonBlack(),SIGNAL(clicked()),this,SLOT(actionbuttonBlack()));
+    QObject::connect(this->play-> getbuttonPurple(),SIGNAL(clicked()),this,SLOT(actionbuttonPurple()));
     play->createView(game);
     this->play->show();
 }
