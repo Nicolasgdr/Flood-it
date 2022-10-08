@@ -27,19 +27,19 @@ bool Game::checkNeighbor(){
             if(value == colorAsk){
                 auto placement = lookPlacement(Position(i,y));
                 if (placement) {
-                check = true;
-                Neighbors.push_back(board.getSquare(Position(i,y)));
-                if(board.isInside(Position(i-0,y-1)) && board.getSquare(Position(i-0,y-1)).getColor()==colorAsk){
-                    Neighbors.push_back(board.getSquare(Position(i-0,y-1)));
-                }else if(board.isInside(Position(i+0,y+1)) && board.getSquare(Position(i+0,y+1)).getColor()==colorAsk){
-                    Neighbors.push_back(board.getSquare(Position(i+0,y+1)));
-                }
-                else if(board.isInside(Position(i+1,y-0)) && board.getSquare(Position(i+1,y-0)).getColor()==colorAsk){
-                    Neighbors.push_back(board.getSquare(Position(i+1,y-0)));
+                    check = true;
+                    Neighbors.push_back(board.getSquare(Position(i,y)));
+                    if(board.isInside(Position(i-0,y-1)) && board.getSquare(Position(i-0,y-1)).getColor()==colorAsk){
+                        Neighbors.push_back(board.getSquare(Position(i-0,y-1)));
+                    }else if(board.isInside(Position(i+0,y+1)) && board.getSquare(Position(i+0,y+1)).getColor()==colorAsk){
+                        Neighbors.push_back(board.getSquare(Position(i+0,y+1)));
+                    }
+                    else if(board.isInside(Position(i+1,y-0)) && board.getSquare(Position(i+1,y-0)).getColor()==colorAsk){
+                        Neighbors.push_back(board.getSquare(Position(i+1,y-0)));
 
-                }else if(board.isInside(Position(i-1,y+0)) && board.getSquare(Position(i-1,y+0)).getColor()==colorAsk){
-                    Neighbors.push_back(board.getSquare(Position(i-1,y+0)));
-                }
+                    }else if(board.isInside(Position(i-1,y+0)) && board.getSquare(Position(i-1,y+0)).getColor()==colorAsk){
+                        Neighbors.push_back(board.getSquare(Position(i-1,y+0)));
+                    }
                 }
             }
         }
@@ -58,11 +58,27 @@ void Game::changeColorOfGroupe(Color color){
 
 void Game::addNeighborToGroupe(){
     if(checkNeighbor()){
+        bool present = false;
         for (size_t i = 0; i < Neighbors.size(); ++i) {
-            Groupe.push_back(Neighbors[i]);
+            Position valuepos = Neighbors.at(i).getPosition();
+
+            for (size_t y = 0; y < Groupe.size(); ++y) {
+
+                if(Groupe.at(y).getPosition() == valuepos){
+                    present = true;
+                }
+
+            }
+            if(present == false){
+                Groupe.push_back(Neighbors[i]);
+            }
+
         }
+
     }
 }
+
+
 
 bool Game::lookPlacement(Position position){
     for (size_t i = 0; i < Groupe.size(); ++i) {
