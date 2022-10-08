@@ -14,6 +14,10 @@ public:
         this->position=position;
         this->color=color;
     }
+    bool operator()(Square&rsh)
+    {
+        return this->position==rsh.position && this->color==rsh.color;
+    }
     /**
      * @brief Square constructor with only a color
      * @param color

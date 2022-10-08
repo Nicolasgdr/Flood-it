@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "qdebug.h"
 
 Game::Game()
 {
@@ -24,21 +25,26 @@ bool Game::checkNeighbor(){
     for (size_t i = 0; i < board.getPlateau().size(); ++i) {
         for (size_t y = 0; y < board.getPlateau()[i].size(); ++y) {
             Color value = board.getSquare(Position(i,y)).getColor();
-            if(value == colorAsk){
-                auto placement = lookPlacement(Position(i,y));
-                if (placement) {
-                    check = true;
-                    Neighbors.push_back(board.getSquare(Position(i,y)));
-                    if(board.isInside(Position(i-0,y-1)) && board.getSquare(Position(i-0,y-1)).getColor()==colorAsk){
-                        Neighbors.push_back(board.getSquare(Position(i-0,y-1)));
-                    }else if(board.isInside(Position(i+0,y+1)) && board.getSquare(Position(i+0,y+1)).getColor()==colorAsk){
-                        Neighbors.push_back(board.getSquare(Position(i+0,y+1)));
-                    }
-                    else if(board.isInside(Position(i+1,y-0)) && board.getSquare(Position(i+1,y-0)).getColor()==colorAsk){
-                        Neighbors.push_back(board.getSquare(Position(i+1,y-0)));
+            auto p = Position(i,y);
+            auto s = board.getSquare(p);
+            if(!std::any_of(Groupe.begin(),Groupe.end(),s)) // je vérifie si une case est déjà dans le groupe
+            {
+                if(value == colorAsk){
+                    auto placement = lookPlacement(Position(i,y));
+                    if (placement) {
+                        check = true;
+                        Neighbors.push_back(board.getSquare(Position(i,y)));
+                        if(board.isInside(Position(i-1,y)) && board.getSquare(Position(i-1,y)).getColor()==colorAsk){
+                            Neighbors.push_back(board.getSquare(Position(i-1,y)));
+                        }else if(board.isInside(Position(i+1,y)) && board.getSquare(Position(i+1,y)).getColor()==colorAsk){
+                            Neighbors.push_back(board.getSquare(Position(i+1,y)));
+                        }
+                        else if(board.isInside(Position(i,y+1)) && board.getSquare(Position(i,y+1)).getColor()==colorAsk){
+                            Neighbors.push_back(board.getSquare(Position(i,y+1)));
 
-                    }else if(board.isInside(Position(i-1,y+0)) && board.getSquare(Position(i-1,y+0)).getColor()==colorAsk){
-                        Neighbors.push_back(board.getSquare(Position(i-1,y+0)));
+                        }else if(board.isInside(Position(i,y-1)) && board.getSquare(Position(i,y-1)).getColor()==colorAsk){
+                            Neighbors.push_back(board.getSquare(Position(i,y-1)));
+                        }
                     }
                 }
             }
@@ -58,24 +64,19 @@ void Game::changeColorOfGroupe(Color color){
 
 void Game::addNeighborToGroupe(){
     if(checkNeighbor()){
-        bool present = false;
-        for (size_t i = 0; i < Neighbors.size(); ++i) {
-            Position valuepos = Neighbors.at(i).getPosition();
+        std::for_each(Neighbors.begin(),Neighbors.end(),[this](Square s){
+            auto p = s.getPosition();
+            qDebug()<< " voisin Position r: "+QString::number(p.getRow())+" voisin Position c:"+QString::number(p.getColumn())+"\n";
+            this->Groupe.push_back(s);
+        });
 
-            for (size_t y = 0; y < Groupe.size(); ++y) {
-
-                if(Groupe.at(y).getPosition() == valuepos){
-                    present = true;
-                }
-
-            }
-            if(present == false){
-                Groupe.push_back(Neighbors[i]);
-            }
-
-        }
 
     }
+    std::for_each(Groupe.begin(),Groupe.end(),[](Square s){
+        auto p = s.getPosition();
+        qDebug()<< "Group Position r: "+QString::number(p.getRow())+" Group Position c: "+QString::number(p.getColumn());
+    });
+
 }
 
 
