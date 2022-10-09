@@ -70,8 +70,6 @@ void Game::addNeighborToGroupe(){
             qDebug()<< " voisin Position r: "+QString::number(p.getRow())+" voisin Position c:"+QString::number(p.getColumn())+"\n";
             this->Groupe.push_back(s);
         });
-
-
     }
     std::for_each(Groupe.begin(),Groupe.end(),[](Square s){
         auto p = s.getPosition();
@@ -79,8 +77,6 @@ void Game::addNeighborToGroupe(){
     });
 
 }
-
-
 
 bool Game::lookPlacement(Position position){
     for (size_t i = 0; i < Groupe.size(); ++i) {
