@@ -67,7 +67,13 @@ public:
     QSpinBox *getCol(){
         return col;
     }
-
+    /**
+     * @brief getColor getter
+     * @return
+     */
+    QSpinBox *getColor(){
+        return color;
+    }
 private:
     Ui::Size *ui;
     QPushButton *button5x5;
@@ -76,6 +82,7 @@ private:
     QPushButton *buttonperso;
     QSpinBox * row;
     QSpinBox *col;
+    QSpinBox *color;
 };
 
 #endif // SIZE_H

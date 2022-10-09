@@ -26,6 +26,7 @@ void Controller::launchPlay(){
     QObject::connect(this->play-> getbuttonPurple(),SIGNAL(clicked()),this,SLOT(actionbuttonPurple()));
     play->createView(game);
     this->play->show();
+    this->play->afficheMin(game);
 }
 void Controller::updateGame(){
     play->deleteElement();
@@ -40,11 +41,12 @@ void Controller::updateGame(){
 
 }
 void Controller::startInitial(){
-    game.initializeGame(this->rowBoard,this->colBoard);
+    game.initializeGame(this->rowBoard,this->colBoard,this->nbColor);
 }
 void Controller::setBoardValue5(){
     this->rowBoard=5;
     this->colBoard=5;
+    this->nbColor=6;
     this->size->close_windows();
     startInitial();
     this->launchPlay();
@@ -52,6 +54,7 @@ void Controller::setBoardValue5(){
 void Controller::setBoardValue12(){
     this->rowBoard=12;
     this->colBoard=12;
+    this->nbColor=6;
     this->size->close_windows();
     startInitial();
     this->launchPlay();
@@ -59,6 +62,7 @@ void Controller::setBoardValue12(){
 void Controller::setBoardValue24(){
     this->rowBoard=24;
     this->colBoard=24;
+    this->nbColor=6;
     this->size->close_windows();
     startInitial();
     this->launchPlay();
@@ -66,6 +70,7 @@ void Controller::setBoardValue24(){
 void Controller::setBoardValueperso(){
     this->rowBoard=size->getrow()->value();
     this->colBoard=size->getCol()->value();
+    this->nbColor=size->getColor()->value();
     this->size->close_windows();
     startInitial();
     this->launchPlay();
@@ -103,3 +108,4 @@ void Controller::actionbuttonPurple(){
     this->game.addNeighborToGroupe();
     updateGame();
 }
+

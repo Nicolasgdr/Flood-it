@@ -30,6 +30,10 @@ Size::Size(QWidget *parent) :
     col->setMaximum(30);
     col->setMinimum(2);
     col->setGeometry(QRect(660,510,48,29));
+    color = new QSpinBox(this);
+    color->setMaximum(6);
+    color->setMinimum(2);
+    color->setGeometry(QRect(90,510,83,29));
 
 
 }

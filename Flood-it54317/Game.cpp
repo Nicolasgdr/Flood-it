@@ -6,9 +6,10 @@ Game::Game()
 
 }
 
-void Game::initializeGame(int i, int y){
-    board=Board(i,y);
+void Game::initializeGame(int i, int y, int x){
+    board=Board(i,y,x);
     getGroupe().push_back(board.getSquare(Position(0,0)));
+    this->nbColorGame = x;
 }
 
 bool Game::checkEnd(){

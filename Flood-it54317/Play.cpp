@@ -86,3 +86,8 @@ void Play::deleteElement(){
         delete child;
     }
 }
+void Play::afficheMin(Game game){
+    int min;
+    min =25*( game.getBoard().getRow()+game.getBoard().getRow()* game.getNbColorGame()/ ((14 + 14) * 6));
+    this->ui->nbMinPlay->setText(QString::number(min));
+}

@@ -59,6 +59,45 @@ hr { height: 1px; border-width: 0; }
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="nbMinPlay">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>460</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nbClickText">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>140</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nb Click : </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nbMinText">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>380</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nb min:</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

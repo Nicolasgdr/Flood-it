@@ -12,12 +12,12 @@ public:
     /**
      * @brief Board where my game will take place, size depend on what the player choose
      */
-    Board(int x, int y){
+    Board(int x, int y,int nbcolor){
         plateau = std::vector<std::vector<Square>>(x, std::vector<Square>(y));
         he2b::nvs::randomize();
         for (size_t i = 0; i < getRow(); ++i) {
             for (size_t y = 0; y < getColumn(); ++y) {
-                Color color = randomColor();
+                Color color = randomColor(nbcolor);
                 plateau.at(i).at(y)=Square(Position(i,y),color);
             }
         }
@@ -56,9 +56,9 @@ public:
      * @brief randomColor will return a color randomly
      * @return
      */
-    Color randomColor(){
+    Color randomColor(int i){
         int index;
-        index = he2b::nvs::random_value(0,5);
+        index = he2b::nvs::random_value(0,i-1);
         return static_cast<Color>(index);
 
     }

@@ -13,7 +13,7 @@ public:
     /**
      * @brief initializeGame is a class that intitalize all the things need to play the game
      */
-    void initializeGame(int i, int y);
+    void initializeGame(int i, int y,int x);
     /**
      * @brief checkWin will check after each round if all the square have the same color or not
      * @return
@@ -65,6 +65,21 @@ public:
     Board getBoard(){
         return board;
     }
+    /**
+     * @brief setnbcolorAsk setter
+     * @param color
+     */
+    void setnbcolorAsk(int color){
+        this->nbColorGame = color;
+    }
+    /**
+     * @brief getNbColorGame getter
+     * @return
+     */
+    int getNbColorGame(){
+        return nbColorGame;
+    }
+
 private :
     size_t rowBoard;
     size_t colBoard;
@@ -73,6 +88,7 @@ private :
     int NumberOfPlay =0;
     std::vector<Square> Groupe;
     std::vector<Square> Neighbors;
+    int nbColorGame;
 
 };
 

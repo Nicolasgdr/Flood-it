@@ -42,6 +42,8 @@ public:
      * @brief startInitial launch the initialization of the game
      */
     void startInitial();
+
+
 public slots:
     void setBoardValue5();
     void setBoardValue12();
@@ -55,9 +57,11 @@ public slots:
     void setBoardValueperso();
 
 
+
 private :
     int rowBoard;
     int colBoard;
+    int nbColor;
 };
 
 

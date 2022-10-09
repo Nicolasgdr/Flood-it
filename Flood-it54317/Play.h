@@ -108,6 +108,11 @@ public:
      * @brief deleteElement delete each view
      */
     void deleteElement();
+    /**
+     * @brief afficheMin
+     */
+    void afficheMin(Game game);
+
 
 private:
     Ui::Play *ui;

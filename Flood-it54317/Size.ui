@@ -57,6 +57,19 @@ hr { height: 1px; border-width: 0; }
     <string>Column</string>
    </property>
   </widget>
+  <widget class="QLabel" name="Colortext">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>510</y>
+     <width>63</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Color</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
