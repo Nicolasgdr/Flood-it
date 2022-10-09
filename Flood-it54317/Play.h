@@ -112,8 +112,18 @@ public:
      * @brief afficheMin
      */
     void afficheMin(Game game);
-
-
+    /**
+     * @brief afficheMinBattu check if the min is < of nbcoup
+     * @param game
+     */
+    void afficheMinBattu(Game game);
+    /**
+     * @brief getMin getter
+     * @return
+     */
+    int getMin(){
+        return min;
+    }
 private:
     Ui::Play *ui;
     QPushButton *buttonRed;
@@ -122,6 +132,7 @@ private:
     QPushButton *buttonPink;
     QPushButton *buttonGreen;
     QPushButton *buttonPurple;
+    int min;
 
 
 };

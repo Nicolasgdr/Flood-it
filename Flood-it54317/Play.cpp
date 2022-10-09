@@ -86,8 +86,10 @@ void Play::deleteElement(){
         delete child;
     }
 }
-void Play::afficheMin(Game game){
-    int min;
+void Play::afficheMin(Game game){ 
     min =(25*( game.getBoard().getRow()+game.getBoard().getRow())* game.getNbColorGame())/ ((14 + 14) * 6);
     this->ui->nbMinPlay->setText(QString::number(min));
+}
+void Play::afficheMinBattu(Game game){
+    this->ui->nbClickText->setText("Congrats, you have beat the minimum move with "+ QString::number(game.getNumberOfPlay()));
 }

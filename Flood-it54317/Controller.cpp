@@ -32,7 +32,11 @@ void Controller::updateGame(){
     play->deleteElement();
     play->createView(game);
     if(game.checkEnd() && game.getNumberOfPlay()<25){
-        play->afficheWin(game);
+        if(game.getNumberOfPlay()< play->getMin()){
+            play->afficheMinBattu(game);
+        }else{
+          play->afficheWin(game);
+        }
     }else if(game.checkEnd() && game.getNumberOfPlay()>25){
         play->afficheLoose(game);
     }else {
