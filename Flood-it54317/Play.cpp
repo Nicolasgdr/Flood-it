@@ -21,24 +21,49 @@ Play::Play(QWidget *parent) :
     buttonGreen->setObjectName(QString::fromUtf8("buttonGreen"));
     buttonGreen->setStyleSheet("background : green");
     buttonGreen->setGeometry(QRect(10, 310, 83, 29));
+    buttonGreen->hide();
     buttonPurple = new QPushButton(this);
     buttonPurple->setText("Purple");
     buttonPurple->setObjectName(QString::fromUtf8("buttonPurple"));
     buttonPurple->setStyleSheet("background : purple");
     buttonPurple->setGeometry(QRect(10, 350, 83, 29));
+    buttonPurple->hide();
     buttonBlack = new QPushButton(this);
     buttonBlack->setText("Black");
     buttonBlack->setObjectName(QString::fromUtf8("pushBlack"));
     buttonBlack->setStyleSheet("background : black");
     buttonBlack->setGeometry(QRect(10, 390, 83, 29));
+    buttonBlack->hide();
     buttonPink = new QPushButton(this);
     buttonPink->setText("Pink");
     buttonPink->setObjectName(QString::fromUtf8("pushPink"));
     buttonPink->setStyleSheet("background : pink");
     buttonPink->setGeometry(QRect(10, 430, 83, 29));
+    buttonPink->hide();
 
 }
+void Play::createButton(Game game){
+    for (int i = 0; i < game.getNbColorGame() ; ++i) {
+        Color color = static_cast<Color>(i);
+        switch (color) {
+        case Color::BLACK:
+            buttonBlack->show();
+            break;
+        case Color::GREEN:
+            buttonGreen->show();
+            break;
+        case Color::PINK:
+            buttonPink->show();
+            break;
+        case Color::PURPLE:
+            buttonPurple->show();
+            break;
+        default:
+            break;
+        }
 
+    }
+}
 Play::~Play()
 {
     delete ui;

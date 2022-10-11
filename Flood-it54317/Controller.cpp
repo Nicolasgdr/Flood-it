@@ -25,6 +25,7 @@ void Controller::launchPlay(){
     QObject::connect(this->play-> getbuttonBlack(),SIGNAL(clicked()),this,SLOT(actionbuttonBlack()));
     QObject::connect(this->play-> getbuttonPurple(),SIGNAL(clicked()),this,SLOT(actionbuttonPurple()));
     play->createView(game);
+    play->createButton(game);
     this->play->show();
     this->play->afficheMin(game);
 }

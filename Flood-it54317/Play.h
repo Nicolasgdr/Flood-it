@@ -124,6 +124,11 @@ public:
     int getMin(){
         return min;
     }
+    /**
+     * @brief createButton show the button
+     * @param game
+     */
+    void createButton(Game game);
 private:
     Ui::Play *ui;
     QPushButton *buttonRed;

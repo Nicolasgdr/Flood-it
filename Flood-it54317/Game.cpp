@@ -13,7 +13,7 @@ void Game::initializeGame(int i, int y, int x){
 }
 
 bool Game::checkEnd(){
-    if(Groupe.size() == (rowBoard*colBoard)-1){
+    if(Groupe.size() == (rowBoard*colBoard)){
         return true;
     }
     return false;
