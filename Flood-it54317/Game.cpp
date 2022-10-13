@@ -29,22 +29,23 @@ bool Game::checkNeighbor(){
             auto p = Position(i,y);
             auto s = board.getSquare(p);
             if(!std::any_of(Groupe.begin(),Groupe.end(),s)) // je vérifie si une case est déjà dans le groupe
+                //si elle et dans le groupe alors je la prend pas en compte
             {
                 if(value == colorAsk){
                     auto placement = lookPlacement(Position(i,y));
                     if (placement) {
                         check = true;
-                        Neighbors.push_back(board.getSquare(Position(i,y)));
+                        Groupe.push_back(board.getSquare(Position(i,y)));
                         if(board.isInside(Position(i-1,y)) && board.getSquare(Position(i-1,y)).getColor()==colorAsk){
-                            Neighbors.push_back(board.getSquare(Position(i-1,y)));
+                            Groupe.push_back(board.getSquare(Position(i-1,y)));
                         }else if(board.isInside(Position(i+1,y)) && board.getSquare(Position(i+1,y)).getColor()==colorAsk){
-                            Neighbors.push_back(board.getSquare(Position(i+1,y)));
+                            Groupe.push_back(board.getSquare(Position(i+1,y)));
                         }
                         else if(board.isInside(Position(i,y+1)) && board.getSquare(Position(i,y+1)).getColor()==colorAsk){
-                            Neighbors.push_back(board.getSquare(Position(i,y+1)));
+                            Groupe.push_back(board.getSquare(Position(i,y+1)));
 
                         }else if(board.isInside(Position(i,y-1)) && board.getSquare(Position(i,y-1)).getColor()==colorAsk){
-                            Neighbors.push_back(board.getSquare(Position(i,y-1)));
+                            Groupe.push_back(board.getSquare(Position(i,y-1)));
                         }
                     }
                 }
