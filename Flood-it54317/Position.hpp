@@ -16,14 +16,14 @@ public:
     }
     /**
      * @brief getRow is the getter of my row
-     * @return
+     * @return size_t
      */
     size_t getRow(){
         return this->row;
     }
     /**
      * @brief getColumn is the getter of my column
-     * @return
+     * @return size_t
      */
     size_t getColumn(){
         return this->column;
@@ -31,7 +31,7 @@ public:
     /**
      * @brief operator ==
      * @param position
-     * @return
+     * @return bool
      */
     bool operator == (Position &position){
         return this->row==position.row && this->column==position.column;

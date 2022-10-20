@@ -23,11 +23,11 @@ Size::Size(QWidget *parent) :
     buttonperso->setText("lancement perso");
     buttonperso->setGeometry(810,510,121,29);
     row = new QSpinBox(this);
-    row->setMaximum(30);
+    row->setMaximum(24);
     row->setMinimum(2);
     row->setGeometry(QRect(490,510,48,29));
     col = new QSpinBox(this);
-    col->setMaximum(30);
+    col->setMaximum(24);
     col->setMinimum(2);
     col->setGeometry(QRect(660,510,48,29));
     color = new QSpinBox(this);

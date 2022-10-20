@@ -5,7 +5,6 @@
 #include "Size.h"
 #include "Play.h"
 
-
 class Controller: public QObject
 {
     Q_OBJECT

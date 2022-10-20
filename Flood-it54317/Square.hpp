@@ -1,5 +1,4 @@
 #include<string>
-
 #include"Color.h"
 #include "Position.hpp"
 class Square
@@ -14,6 +13,11 @@ public:
         this->position=position;
         this->color=color;
     }
+    /**
+     * @brief operator ()
+     * @param rsh
+     * @return bool
+     */
     bool operator()(Square&rsh)
     {
         return this->position==rsh.position && this->color==rsh.color;
@@ -27,7 +31,7 @@ public:
     }
     /**
      * @brief getColor is the getter for the color of my square
-     * @return
+     * @return color
      */
     Color getColor(){
         return this->color;
@@ -39,6 +43,10 @@ public:
     void setColor(Color color){
         this->color = color;
     }
+    /**
+     * @brief getPosition
+     * @return Position
+     */
     Position &getPosition(){
         return this->position;
     }

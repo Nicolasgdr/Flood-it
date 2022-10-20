@@ -1,6 +1,5 @@
 #ifndef SIZE_H
 #define SIZE_H
-
 #include "qpushbutton.h"
 #include "qspinbox.h"
 #include <QWidget>
@@ -27,49 +26,49 @@ public:
     void close_windows();
     /**
      * @brief getbutton5x5 getter
-     * @return
+     * @return QpushButton
      */
     QPushButton* getbutton5x5(){
         return  button5x5;
     }
     /**
      * @brief getbutton12x12 getter
-     * @return
+     * @return QpushButton
      */
     QPushButton* getbutton12x12(){
         return button12x12;
     }
     /**
      * @brief getbutton24x24 getter
-     * @return
+     * @return QpushButton
      */
     QPushButton* getbutton24x24(){
         return button24x24;
     }
     /**
      * @brief getbuttonperso getter
-     * @return
+     * @return QpushButton
      */
     QPushButton* getbuttonperso(){
         return buttonperso;
     }
     /**
      * @brief getrow getter
-     * @return
+     * @return QSpinBox
      */
     QSpinBox* getrow(){
         return row;
     }
     /**
      * @brief getCol getter
-     * @return
+     * @return QSpinBox
      */
     QSpinBox *getCol(){
         return col;
     }
     /**
      * @brief getColor getter
-     * @return
+     * @return QSpinBox
      */
     QSpinBox *getColor(){
         return color;

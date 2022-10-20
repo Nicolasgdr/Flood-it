@@ -16,24 +16,21 @@ public:
     void initializeGame(int i, int y,int x);
     /**
      * @brief checkWin will check after each round if all the square have the same color or not
-     * @return
+     * @return boolean  if neighbor
      */
     bool checkEnd();
     /**
      * @brief checkNeighbor will check if the squares next of the group are the same color or not
      */
-    bool checkNeighbor();
+    void checkNeighbor();
     /**
      * @brief changeColorOfNeighbor will change the color for all the neighbor ( color chose buy the player)
      */
     void changeColorOfGroupe(Color color);
-    /**
-     * @brief addSquareToGroupe will just add a square to the group of square that will change color( new neighbor)
-     */
-    void addNeighborToGroupe();
+
     /**
      * @brief getGroupe getter for the group
-     * @return
+     * @return vector groupe
      */
     std::vector<Square>  &getGroupe() {
         return Groupe;
@@ -41,7 +38,7 @@ public:
     /**
      * @brief lookPlacement check if the next square are on the right position
      * @param position
-     * @return
+     * @return boolean if position ok
      */
     bool lookPlacement(Position position);
     /**
@@ -53,14 +50,14 @@ public:
     }
     /**
      * @brief getNumberOfPlay getter of my number of round
-     * @return
+     * @return int
      */
     int getNumberOfPlay(){
         return NumberOfPlay;
     }
     /**
      * @brief getBoard getter
-     * @return
+     * @return Board
      */
     Board getBoard(){
         return board;
@@ -74,7 +71,7 @@ public:
     }
     /**
      * @brief getNbColorGame getter
-     * @return
+     * @return int
      */
     int getNbColorGame(){
         return nbColorGame;
@@ -87,7 +84,6 @@ private :
     Board board;
     int NumberOfPlay =0;
     std::vector<Square> Groupe;
-    std::vector<Square> Neighbors;
     int nbColorGame;
 
 };

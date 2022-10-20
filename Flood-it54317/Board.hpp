@@ -24,7 +24,7 @@ public:
     }
     /**
      * @brief getPlateau is the getter for my game place
-     * @return
+     * @return vector plateau
      */
     std::vector<std::vector<Square>> &getPlateau(){
         return plateau;
@@ -33,28 +33,28 @@ public:
     /**
      * @brief getSquare return a square of the plateau
      * @param position
-     * @return
+     * @return square
      */
     Square & getSquare(Position position){
         return plateau.at(position.getRow()).at(position.getColumn());
     }
     /**
      * @brief getRow getter for the row of my plateau
-     * @return
+     * @return size_t row
      */
     size_t getRow(){
         return this->plateau.size();;
     }
     /**
      * @brief getColumn  getter for the column of my plateau
-     * @return
+     * @return size_t col
      */
     size_t getColumn(){
         return this->plateau.at(0).size();
     }
     /**
      * @brief randomColor will return a color randomly
-     * @return
+     * @return a Color of the square
      */
     Color randomColor(int i){
         int index;
@@ -63,9 +63,9 @@ public:
 
     }
     /**
-     * @brief isInside
+     * @brief isInside check the position
      * @param position
-     * @return
+     * @return boolean
      */
     bool isInside(Position position){
         if(position.getRow() >= 0 && position.getColumn()>=0){

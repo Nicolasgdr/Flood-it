@@ -32,14 +32,17 @@ void Controller::launchPlay(){
 void Controller::updateGame(){
     play->deleteElement();
     play->createView(game);
-    if(game.checkEnd() && game.getNumberOfPlay()<25){
+    if(game.checkEnd() && game.getNumberOfPlay()<=25){
         if(game.getNumberOfPlay()< play->getMin()){
             play->afficheMinBattu(game);
+            play->hideButton();
         }else{
-          play->afficheWin(game);
+            play->afficheWin(game);
+            play->hideButton();
         }
     }else if(game.checkEnd() && game.getNumberOfPlay()>25){
         play->afficheLoose(game);
+        play->hideButton();
     }else {
         play->updateNbcoup(game);
     }
@@ -83,34 +86,34 @@ void Controller::setBoardValueperso(){
 
 void Controller::actionbuttonRed(){
     this->game.setcolorAsk(RED);
-    this->game.addNeighborToGroupe();
+    this->game.checkNeighbor();
     updateGame();
 
 }
 void Controller::actionbuttonBlue(){
     this->game.setcolorAsk(BLUE);
-    this->game.addNeighborToGroupe();
+    this->game.checkNeighbor();
     updateGame();
 
 }
 void Controller::actionbuttonBlack(){
     this->game.setcolorAsk(BLACK);
-    this->game.addNeighborToGroupe();
+    this->game.checkNeighbor();
     updateGame();
 }
 void Controller::actionbuttonPink(){
     this->game.setcolorAsk(PINK);
-    this->game.addNeighborToGroupe();
+    this->game.checkNeighbor();
     updateGame();
 }
 void Controller::actionbuttonGreen(){
     this->game.setcolorAsk(GREEN);
-    this->game.addNeighborToGroupe();
+    this->game.checkNeighbor();
     updateGame();
 }
 void Controller::actionbuttonPurple(){
     this->game.setcolorAsk(PURPLE);
-    this->game.addNeighborToGroupe();
+    this->game.checkNeighbor();
     updateGame();
 }
 

@@ -1,8 +1,6 @@
 #ifndef PLAY_H
 #define PLAY_H
-
 #include "Game.h"
-#include "qlabel.h"
 #include "qpushbutton.h"
 #include <QWidget>
 
@@ -43,28 +41,28 @@ public:
     void onbuttonBlack();
     /**
      * @brief getbuttonRed getter
-     * @return
+     * @return QPushButton
      */
     QPushButton * getbuttonRed(){
         return buttonRed;
     }
     /**
      * @brief getbuttonBlue getter
-     * @return
+     * @return QPushButton
      */
     QPushButton * getbuttonBlue(){
         return buttonBlue;
     }
     /**
      * @brief getbuttonBlack getter
-     * @return
+     * @return QPushButton
      */
     QPushButton * getbuttonBlack(){
         return buttonBlack;
     }
     /**
      * @brief getbuttonPink getter
-     * @return
+     * @return QPushButton
      */
     QPushButton * getbuttonPink(){
         return buttonPink;
@@ -72,14 +70,14 @@ public:
     }
     /**
      * @brief getbuttonGreen getter
-     * @return
+     * @return QPushButton
      */
     QPushButton * getbuttonGreen(){
         return buttonGreen;
     }
     /**
      * @brief getbuttonPurple getter
-     * @return
+     * @return QPushButton
      */
     QPushButton *getbuttonPurple(){
         return buttonPurple;
@@ -119,7 +117,7 @@ public:
     void afficheMinBattu(Game game);
     /**
      * @brief getMin getter
-     * @return
+     * @return int
      */
     int getMin(){
         return min;
@@ -129,6 +127,10 @@ public:
      * @param game
      */
     void createButton(Game game);
+    /**
+     * @brief blockButton
+     */
+    void hideButton();
 private:
     Ui::Play *ui;
     QPushButton *buttonRed;

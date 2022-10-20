@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>973</width>
+    <width>1004</width>
     <height>587</height>
    </rect>
   </property>
@@ -18,8 +18,8 @@
     <rect>
      <x>340</x>
      <y>90</y>
-     <width>251</width>
-     <height>91</height>
+     <width>231</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="html">
@@ -36,8 +36,8 @@ hr { height: 1px; border-width: 0; }
     <rect>
      <x>830</x>
      <y>220</y>
-     <width>141</width>
-     <height>61</height>
+     <width>161</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="text">
