@@ -69,7 +69,7 @@ public:
      */
     bool isInside(Position position){
         if(position.getRow() >= 0 && position.getColumn()>=0){
-            if(plateau.size()<position.getRow() && plateau.size()<position.getColumn())
+            if(plateau.size()>position.getRow() && plateau[0].size()>position.getColumn())
                 return true;
         }
         return false;

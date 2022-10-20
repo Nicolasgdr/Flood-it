@@ -76,7 +76,8 @@ public:
     int getNbColorGame(){
         return nbColorGame;
     }
-
+    void NeighborOk(int i, int y);
+    bool isValid(int i,int y);
 private :
     size_t rowBoard;
     size_t colBoard;
