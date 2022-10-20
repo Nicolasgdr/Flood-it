@@ -76,7 +76,18 @@ public:
     int getNbColorGame(){
         return nbColorGame;
     }
+    /**
+     * @brief NeighborOk check the neigbhor for our closed neighbor
+     * @param i
+     * @param y
+     */
     void NeighborOk(int i, int y);
+    /**
+     * @brief isValid check validity
+     * @param i
+     * @param y
+     * @return boolean
+     */
     bool isValid(int i,int y);
 private :
     size_t rowBoard;

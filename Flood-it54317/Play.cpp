@@ -116,7 +116,7 @@ void Play::afficheMin(Game game){
     this->ui->nbMinPlay->setText(QString::number(min));
 }
 void Play::afficheMinBattu(Game game){
-    this->ui->nbClickText->setText("Congrats, you have beat the minimum move with "+ QString::number(game.getNumberOfPlay()));
+    this->ui->nbcoup->setText("Congrats, you have beat the minimum move with "+ QString::number(game.getNumberOfPlay()));
 }
 void Play::hideButton(){
 buttonRed->hide();
